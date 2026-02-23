@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | NEXUS</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+
+    <div class="grid-bg"></div>
+    <div class="gradient-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <nav class="nav-glass">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">◈</span>
+            <span class="logo-text">NEXUS</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="nav-link">Home</a></li>
+            <li><a href="products.html" class="nav-link active">Products</a></li>
+            <li><a href="#" class="nav-link">About</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="btn-glow">Get Started</button>
+    </nav>
+
+    <main class="products-page">
+        <header class="page-header">
+            <div class="tag-line">
+                <span class="tag-dot"></span>
+                <span>Our Products</span>
+            </div>
+            <h1 class="page-title">
+                <span class="title-line">革新的な</span>
+                <span class="title-line gradient-text">プロダクト</span>
+            </h1>
+            <p class="page-desc">
+                最先端のテクノロジーで、あなたのビジネスを加速させます。
+            </p>
+        </header>
+
+        <section class="products-grid">
+            <article class="product-card">
+                <div class="product-image">
+                    <div class="product-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M9 9h6v6H9z"/>
+                        </svg>
+                    </div>
+                    <div class="product-glow"></div>
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Platform</span>
+                    <h3>NEXUS Core</h3>
+                    <p>統合プラットフォームの中核。すべてのサービスをシームレスに接続します。</p>
+                    <ul class="product-features">
+                        <li>無制限のAPI呼び出し</li>
+                        <li>リアルタイム同期</li>
+                        <li>99.99% 稼働率保証</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-value">¥29,800</span>
+                        <span class="price-period">/月</span>
+                    </div>
+                    <button class="btn-product">詳細を見る</button>
+                </div>
+            </article>
+
+            <article class="product-card featured">
+                <div class="featured-badge">人気</div>
+                <div class="product-image">
+                    <div class="product-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                        </svg>
+                    </div>
+                    <div class="product-glow"></div>
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Enterprise</span>
+                    <h3>NEXUS Pro</h3>
+                    <p>大規模チーム向けの高度な機能。AIによる自動最適化を搭載。</p>
+                    <ul class="product-features">
+                        <li>AI駆動の分析</li>
+                        <li>カスタムワークフロー</li>
+                        <li>専任サポート</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-value">¥79,800</span>
+                        <span class="price-period">/月</span>
+                    </div>
+                    <button class="btn-product btn-featured">詳細を見る</button>
+                </div>
+            </article>
+
+            <article class="product-card">
+                <div class="product-image">
+                    <div class="product-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <div class="product-glow"></div>
+                </div>
+                <div class="product-content">
+                    <span class="product-tag">Analytics</span>
+                    <h3>NEXUS Insights</h3>
+                    <p>データを可視化し、ビジネスの意思決定をサポートします。</p>
+                    <ul class="product-features">
+                        <li>リアルタイムダッシュボード</li>
+                        <li>カスタムレポート</li>
+                        <li>予測分析</li>
+                    </ul>
+                    <div class="product-price">
+                        <span class="price-value">¥19,800</span>
+                        <span class="price-period">/月</span>
+                    </div>
+                    <button class="btn-product">詳細を見る</button>
+                </div>
+            </article>
+        </section>
+
+        <section class="comparison-section">
+            <h2 class="section-title">プラン比較</h2>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>機能</th>
+                            <th>Core</th>
+                            <th class="highlight">Pro</th>
+                            <th>Insights</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>API呼び出し</td>
+                            <td>無制限</td>
+                            <td class="highlight">無制限</td>
+                            <td>10万/月</td>
+                        </tr>
+                        <tr>
+                            <td>チームメンバー</td>
+                            <td>10人</td>
+                            <td class="highlight">無制限</td>
+                            <td>5人</td>
+                        </tr>
+                        <tr>
+                            <td>AI機能</td>
+                            <td>基本</td>
+                            <td class="highlight">高度</td>
+                            <td>分析特化</td>
+                        </tr>
+                        <tr>
+                            <td>サポート</td>
+                            <td>メール</td>
+                            <td class="highlight">24/7 専任</td>
+                            <td>チャット</td>
+                        </tr>
+                        <tr>
+                            <td>SLA</td>
+                            <td>99.9%</td>
+                            <td class="highlight">99.99%</td>
+                            <td>99.9%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-glass">
+        <p>© 2026 NEXUS. Crafted with precision.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.cursor-glow');
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+    </script>
+</body>
+</html>
