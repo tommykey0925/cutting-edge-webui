@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS | Future Interface</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="cursor-glow"></div>
+
+    <div class="grid-bg"></div>
+    <div class="gradient-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <nav class="nav-glass">
+        <div class="logo">
+            <span class="logo-icon">◈</span>
+            <span class="logo-text">NEXUS</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="nav-link active">Home</a></li>
+            <li><a href="#" class="nav-link">Products</a></li>
+            <li><a href="#" class="nav-link">About</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+        <button class="btn-glow">Get Started</button>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-content">
+            <div class="tag-line">
+                <span class="tag-dot"></span>
+                <span>Next Generation Interface</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-line">Design the</span>
+                <span class="title-line gradient-text">Future Today</span>
+            </h1>
+            <p class="hero-desc">
+                革新的なテクノロジーと美しいデザインの融合。
+                次世代のユーザー体験を創造します。
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-primary">
+                    <span>Explore Now</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
+                <button class="btn-secondary">Watch Demo</button>
+            </div>
+        </div>
+
+        <div class="hero-visual">
+            <div class="floating-card card-1">
+                <div class="card-icon">⚡</div>
+                <div class="card-label">Performance</div>
+                <div class="card-value">99.9%</div>
+            </div>
+            <div class="floating-card card-2">
+                <div class="card-icon">🔒</div>
+                <div class="card-label">Security</div>
+                <div class="card-value">A+</div>
+            </div>
+            <div class="floating-card card-3">
+                <div class="card-icon">🚀</div>
+                <div class="card-label">Speed</div>
+                <div class="card-value">10ms</div>
+            </div>
+
+            <div class="hologram-ring"></div>
+            <div class="hologram-ring ring-2"></div>
+            <div class="hologram-ring ring-3"></div>
+
+            <div class="center-sphere">
+                <div class="sphere-inner"></div>
+            </div>
+        </div>
+    </main>
+
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                </svg>
+            </div>
+            <h3>Modular Design</h3>
+            <p>柔軟なコンポーネント設計で無限の可能性を</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M12 6v6l4 2"/>
+                </svg>
+            </div>
+            <h3>Real-time Sync</h3>
+            <p>リアルタイムでシームレスな同期体験</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+            </div>
+            <h3>Secure Core</h3>
+            <p>エンタープライズグレードのセキュリティ</p>
+        </div>
+    </section>
+
+    <footer class="footer-glass">
+        <p>© 2026 NEXUS. Crafted with precision.</p>
+    </footer>
+
+    <script>
+        // Cursor glow effect
+        document.addEventListener('mousemove', (e) => {
+            const glow = document.querySelector('.cursor-glow');
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+        });
+
+        // Parallax for floating cards
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.floating-card');
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+
+            cards.forEach((card, i) => {
+                const factor = (i + 1) * 0.5;
+                card.style.transform = `translate(${x * factor}px, ${y * factor}px) rotate(${x * 0.1}deg)`;
+            });
+        });
+    </script>
+</body>
+</html>
