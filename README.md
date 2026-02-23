@@ -67,6 +67,156 @@ body
 
 ## CSS基礎
 
+### セレクタの記号 `:` と `::` の違い
+
+CSSでは `:` と `::` で意味が異なります。
+
+#### `:` シングルコロン = 疑似クラス（状態を指定）
+
+要素の「状態」や「条件」を指定します。
+
+```css
+/* マウスを乗せた時 */
+.btn:hover {
+    background: blue;
+}
+
+/* クリック中 */
+.btn:active {
+    background: red;
+}
+
+/* 最初の子要素だけ */
+li:first-child {
+    font-weight: bold;
+}
+```
+
+**よく使う疑似クラス**
+
+| 疑似クラス | 意味 |
+|-----------|------|
+| `:hover` | マウスを乗せた時 |
+| `:active` | クリック中 |
+| `:focus` | フォーカス中（キーボード選択など） |
+| `:first-child` | 最初の子要素 |
+| `:last-child` | 最後の子要素 |
+| `:nth-child(n)` | n番目の子要素 |
+
+#### `::` ダブルコロン = 疑似要素（部分や追加要素）
+
+要素の「一部」や「仮想的な要素」を指定します。
+
+```css
+/* 要素の「前」に追加 */
+.btn::before {
+    content: '→ ';
+}
+
+/* 要素の「後」に追加 */
+.btn::after {
+    content: ' ✓';
+}
+
+/* テキスト選択時 */
+::selection {
+    background: cyan;
+}
+```
+
+**よく使う疑似要素**
+
+| 疑似要素 | 意味 |
+|---------|------|
+| `::before` | 要素の前に追加 |
+| `::after` | 要素の後に追加 |
+| `::selection` | 選択されたテキスト |
+| `::placeholder` | inputのプレースホルダー |
+| `::first-line` | 最初の行 |
+
+#### 覚え方
+
+| 記号 | 意味 | 考え方 |
+|-----|------|--------|
+| `:` | 状態・条件 | 「〜**したら**」「〜**なら**」 |
+| `::` | 部分・追加 | 「〜**の前に**」「〜**の部分**」 |
+
+---
+
+### `::before` / `::after` の仕組み
+
+HTMLを書かずに、CSSだけで要素を追加できます。
+
+#### 基本的な使い方
+
+```html
+<!-- HTMLはこれだけ -->
+<button class="btn">送信</button>
+```
+
+```css
+.btn::before {
+    content: '→ ';  /* 文字の「前」に追加 */
+}
+
+.btn::after {
+    content: ' ✓';  /* 文字の「後」に追加 */
+}
+```
+
+**表示結果:**
+```
+→ 送信 ✓
+```
+
+HTMLは「送信」だけなのに、CSSで前後に文字が追加されます。
+
+#### 装飾用の図形を追加する
+
+文字ではなく、空の要素を作って装飾に使うことが多いです。
+
+```css
+.card::before {
+    content: '';           /* 空っぽ（でも content は必須！） */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(...);
+}
+```
+
+これで「カードの上部に光るライン」を HTMLを変えずに追加できます。
+
+#### このプロジェクトでの使用例
+
+```css
+/* feature-card にホバーすると上部にラインが出現 */
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-main);
+    transform: scaleX(0);           /* 最初は幅0 */
+    transition: transform 0.4s ease;
+}
+
+.feature-card:hover::before {
+    transform: scaleX(1);           /* ホバーで幅100%に */
+}
+```
+
+**動作:**
+1. 普段は `scaleX(0)` で見えない
+2. ホバーすると `scaleX(1)` で左右に伸びて出現
+3. `transition` でアニメーションする
+
+---
+
 ### リセットCSS
 
 ブラウザのデフォルトスタイルを統一します。
