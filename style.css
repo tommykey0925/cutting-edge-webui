@@ -10,13 +10,13 @@
 :root {
     --bg-dark: #0a0a0f;
     --bg-card: rgba(255, 255, 255, 0.03);
-    --glass-bg: rgba(255, 255, 255, 0.08);
-    --glass-border: rgba(255, 255, 255, 0.25);
-    --glass-blur: blur(24px) saturate(180%);
-    --glass-shadow-outer: 0 8px 32px rgba(0, 0, 0, 0.35);
-    --glass-shadow-inset: inset 0 1px 1px rgba(255, 255, 255, 0.15),
-                          inset 0 -1px 1px rgba(255, 255, 255, 0.05);
-    --glass-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 40%, transparent 60%);
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.35);
+    --glass-blur: blur(2px) saturate(180%);
+    --glass-shadow-outer: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --glass-shadow-inset: inset 0 2px 4px rgba(255, 255, 255, 0.2),
+                          inset 0 -2px 4px rgba(255, 255, 255, 0.05);
+    --glass-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.08) 40%, transparent 60%);
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.6);
     --accent-cyan: #00f5ff;
@@ -139,7 +139,14 @@ body {
     position: absolute;
     inset: 0;
     border-radius: 20px;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    filter: url(#liquid-glass) brightness(110%);
+    -webkit-filter: url(#liquid-glass) brightness(110%);
     background: var(--glass-shine);
+    box-shadow: inset -8px -6px 0px -9px rgba(255, 255, 255, 0.6),
+                inset 0px -7px 0px -6px rgba(255, 255, 255, 0.4);
+    opacity: 0.5;
     pointer-events: none;
     z-index: 0;
 }
@@ -410,7 +417,14 @@ body {
     position: absolute;
     inset: 0;
     border-radius: 16px;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    filter: url(#liquid-glass) brightness(110%);
+    -webkit-filter: url(#liquid-glass) brightness(110%);
     background: var(--glass-shine);
+    box-shadow: inset -8px -6px 0px -9px rgba(255, 255, 255, 0.6),
+                inset 0px -7px 0px -6px rgba(255, 255, 255, 0.4);
+    opacity: 0.5;
     pointer-events: none;
 }
 
@@ -542,7 +556,14 @@ body {
     position: absolute;
     inset: 0;
     border-radius: 24px;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
+    filter: url(#liquid-glass) brightness(110%);
+    -webkit-filter: url(#liquid-glass) brightness(110%);
     background: var(--glass-shine);
+    box-shadow: inset -8px -6px 0px -9px rgba(255, 255, 255, 0.6),
+                inset 0px -7px 0px -6px rgba(255, 255, 255, 0.4);
+    opacity: 0.5;
     pointer-events: none;
     transition: opacity 0.4s ease;
 }
