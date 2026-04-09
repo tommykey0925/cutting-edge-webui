@@ -10,8 +10,13 @@
 :root {
     --bg-dark: #0a0a0f;
     --bg-card: rgba(255, 255, 255, 0.03);
-    --glass-bg: rgba(255, 255, 255, 0.05);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(255, 255, 255, 0.08);
+    --glass-border: rgba(255, 255, 255, 0.25);
+    --glass-blur: blur(24px) saturate(180%);
+    --glass-shadow-outer: 0 8px 32px rgba(0, 0, 0, 0.35);
+    --glass-shadow-inset: inset 0 1px 1px rgba(255, 255, 255, 0.15),
+                          inset 0 -1px 1px rgba(255, 255, 255, 0.05);
+    --glass-shine: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 40%, transparent 60%);
     --text-primary: #ffffff;
     --text-secondary: rgba(255, 255, 255, 0.6);
     --accent-cyan: #00f5ff;
@@ -118,14 +123,30 @@ body {
     max-width: 1200px;
     padding: 16px 32px;
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 20px;
+    box-shadow: var(--glass-shadow-outer), var(--glass-shadow-inset);
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
+}
+
+.nav-glass::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    background: var(--glass-shine);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.nav-glass > * {
+    position: relative;
+    z-index: 1;
 }
 
 .logo {
@@ -257,6 +278,7 @@ body {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: 30px;
+    box-shadow: var(--glass-shadow-inset);
     font-size: 0.9rem;
     color: var(--text-secondary);
     margin-bottom: 24px;
@@ -373,12 +395,23 @@ body {
     position: absolute;
     padding: 20px 28px;
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 16px;
+    box-shadow: var(--glass-shadow-outer), var(--glass-shadow-inset);
+    overflow: hidden;
     transition: transform 0.1s ease-out;
     z-index: 10;
+}
+
+.floating-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: var(--glass-shine);
+    pointer-events: none;
 }
 
 .card-1 {
@@ -494,13 +527,24 @@ body {
 .feature-card {
     padding: 40px;
     background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     border: 1px solid var(--glass-border);
     border-radius: 24px;
+    box-shadow: var(--glass-shadow-outer), var(--glass-shadow-inset);
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
+}
+
+.feature-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    background: var(--glass-shine);
+    pointer-events: none;
+    transition: opacity 0.4s ease;
 }
 
 .feature-card::before {
@@ -521,8 +565,10 @@ body {
 
 .feature-card:hover {
     transform: translateY(-8px);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4),
+                inset 0 1px 2px rgba(255, 255, 255, 0.2),
+                inset 0 -1px 1px rgba(255, 255, 255, 0.08);
 }
 
 .feature-icon {
@@ -559,7 +605,11 @@ body {
     text-align: center;
     color: var(--text-secondary);
     font-size: 0.9rem;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
     border-top: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow-inset);
 }
 
 /* ===== Responsive Design ===== */
