@@ -1,0 +1,10 @@
+# Playwright MCP
+.playwright-mcp/
+
+# Screenshots
+*.png
+*.jpeg
+
+# OS
+.DS_Store
+Thumbs.db
